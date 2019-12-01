@@ -1,30 +1,33 @@
 <template>
   <div>
-    <div class="input-group mb-3">
+    <div class="form-group">
+      <label for="save-input">
+        <strong>Save value in web browser cookies and local storage:</strong>
+      </label>
       <input
+        id="save-input"
         type="text"
         class="form-control"
-        placeholder="Type..."
-        aria-label="Type..."
+        placeholder=""
+        aria-label=""
         aria-describedby="basic-addon1"
         v-model="inputValue"
       />
     </div>
     <button
       type="button"
-      class="btn btn-primary btn-lg"
+      class="btn btn-primary btn-lg mb-2"
       @click="initSubmit"
-      :disabled="submitBtnDisabled"
     >
-      Submit
+      Save in cookies and local storage
     </button>
     <button
       type="button"
-      class="btn btn-danger btn-lg"
+      class="btn btn-danger btn-lg mb-2"
       @click="clearData"
       :disabled="clearBtnDisabled"
     >
-      Clear
+      Clear cookies and local storage
     </button>
     <hr class="my-4" />
   </div>
@@ -50,26 +53,24 @@ export default {
     }
   },
   computed: {
-    submitBtnDisabled() {
-      return this.inputValue === "";
-    },
     clearBtnDisabled() {
       return this.localStorageVal === "" && this.cookieVal === "";
     }
   },
   methods: {
     initSubmit() {
-      this.setCookie(this.inputValue);
-      this.setLocalStorage(this.inputValue);
-      this.$emit("fetch-data");
-      this.clearInput();
+      if (this.inputValue !== "") {
+        this.setCookie(this.inputValue);
+        this.setLocalStorage(this.inputValue);
+        this.$emit("fetch-data");
+        this.clearInput();
+      }
     },
     clearData() {
       console.log("clearData");
       this.deleteCookie();
       this.removeLocalStorage();
       this.$emit("fetch-data");
-      this.clearInput();
     },
     setCookie(val) {
       const cookieDate = new Date();
