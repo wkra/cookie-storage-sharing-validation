@@ -67,7 +67,6 @@ export default {
       }
     },
     clearData() {
-      console.log("clearData");
       this.deleteCookie();
       this.removeLocalStorage();
       this.$emit("fetch-data");
