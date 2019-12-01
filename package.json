@@ -9,9 +9,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "generateGhp": "DEPLOY_ENV=GH_PAGES nuxt generate",
     "test": "jest",
-    "deploy": "gh-pages -d dist",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
