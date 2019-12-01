@@ -1,4 +1,14 @@
+const routerBase =
+  process.env.DEPLOY_ENV === "GH_PAGES"
+    ? {
+        router: {
+          base: "/cookie-storage-sharing-validation/"
+        }
+      }
+    : {};
+
 export default {
+  ...routerBase,
   mode: "universal",
   /*
    ** Headers of the page
