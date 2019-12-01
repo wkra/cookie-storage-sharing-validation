@@ -72,9 +72,6 @@ export default {
       this.$emit("fetch-data");
     },
     setCookie(val) {
-      const cookieDate = new Date();
-      cookieDate.setFullYear(cookieDate.getFullYear() + 10);
-
       document.cookie =
         this.shareKey + "=" + val + "; expires=Fri, 31 Dec 9999 23:59:59 GMT;";
     },
