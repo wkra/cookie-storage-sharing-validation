@@ -14,7 +14,7 @@
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "@nuxtjs/pwa": "^3.0.0-0"
   },
   "devDependencies": {
